@@ -37,7 +37,7 @@ export default route(function (/* { store, ssrContext } */) {
     if (!isLoggedIn() && to.meta.requiresAuth && !Object.keys(to.query).includes('fromEmail')) {
       return { path: 'login' }
     }
-    if (isLoggedIn() && to.path === '/login') {
+    if (isLoggedIn() && (to.path === '/login' || to.path === '/')) {
       return { path: 'me' }
     }
   })
